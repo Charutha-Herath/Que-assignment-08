@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Light</title>
+
+    <style>
+        body{
+            position: absolute;
+            background: grey;
+
+        }
+        main{
+            top: 25vh;
+            left: 25vw;
+
+            position: relative;
+        }
+        section{
+            display: flex;
+
+        }
+        div{
+            height: 50px;
+            margin: 20px;
+            aspect-ratio: 1/.5;
+
+            border-radius: 2px;
+
+
+        }
+        #last-light{
+            position: relative;
+            left: 50vw;
+        }
+        #first-light{
+            position: relative;
+            left: -17vw;
+        }
+        hr{
+            background-color: #464646;
+        }
+    </style>
+</head>
+<body>
+
+<script src="assets/link/jquery-3.7.1.min.js"></script>
+<main>
+    <div id="first-light"></div>
+    <hr>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <hr>
+    <div id="last-light"></div>
+</main>
+
+
+
+<script>
+    let divs = document.querySelectorAll("div");
+    let colors = ['red','green','blue','yellow','purple','pink']
+    function loop (){
+        let color = colors[colors.length-1];
+
+
+        colors.pop()
+        colors.unshift(color)
+
+
+        for (let i = 0; i < divs.length; i++) {
+            divs[i].style.background = colors[i];
+        }
+    }
+    setInterval(loop,500);
+</script>
+</body>
+</html>
