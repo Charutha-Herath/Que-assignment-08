@@ -26,17 +26,26 @@
 
         #top-line{
             background-color: black;
-            top: 31vh;
+            top: 40vh;
 
             position: absolute;
-            width: 75vw;
+            width: 62vw;
             height: 0.1vh;
         }
 
         .house{
             margin: 10px;
             position: relative;
-            top: 7vh;
+            top: 12vh;
+        }
+
+        body{
+            background-color: #e9e7e6;
+        }
+
+        .letter-1,.letter-2,.letter-3,.letter-4,.letter-5,.letter-6{
+            color: cornflowerblue;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -45,24 +54,44 @@
 
 <div id="Main-div">
     <section class="main-div-man">
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">A</div>
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">B</div>
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">C</div>
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">D</div>
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">E</div>
-        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="80px" height="80px"></div>
-        <div class="letter">F</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-1">A</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-2">B</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-3">C</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-4">D</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-5">E</div>
+        <div class="man"><img src="assets/gif/man.gif" alt="man walking" width="150px" height="150px"></div>
+        <div class="letter-6">F</div>
     </section>
-    <div class="house"><img src="assets/gif/house.gif" alt="house" width="300px" height="200px"></div>
+    <div class="house"><img src="assets/gif/house.gif" alt="house" width="400px" height="250px"></div>
 
     <h1 id="top-line"></h1>
 </div>
 
-s
+<script>
+    var array = ["A", "B", "C", "D", "E", "F"]; // ["F", "A", "B", "C", "D", "E"]
+
+    var myInterval = null;
+
+    function replaceValues() {
+        // change the array
+        let lastValue = array.pop();
+        array.unshift(lastValue);
+
+        // update the elements
+        $(".letter-1").text(array[0]);
+        $(".letter-2").text(array[1]);
+        $(".letter-3").text(array[2]);
+        $(".letter-4").text(array[3]);
+        $(".letter-5").text(array[4]);
+        $(".letter-6").text(array[5]);
+    }
+
+    setInterval(replaceValues, 2000);
+</script>
 </body>
 </html>
